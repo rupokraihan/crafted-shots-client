@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from '../banner/Banner';
-import PopularCLass from '../classes/popularClass/PopularCLass';
-import PopularInstructors from '../instructors/popularInstructors/PopularInstructors';
+import PopularCLass from '../popularClass/PopularCLass';
+import PopularInstructors from '../popularInstructors/PopularInstructors';
 
 const Home = () => {
   return (

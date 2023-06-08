@@ -3,25 +3,35 @@ import Main from "../layouts/Main";
 import Home from "../pages/home/home/Home";
 import Login from "../layouts/login/Login";
 import Register from "../layouts/register/Register";
+import AllClasses from "../pages/classes/AllClasses";
+import AllInstructors from "../pages/instructors/AllInstructors";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main/>,
+    element: <Main />,
     // errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
-        element: <Home/>,
+        element: <Home />,
+      },
+      {
+        path: "instructors",
+        element:<AllInstructors/>
+      },
+      {
+        path: "classes",
+        element: <AllClasses />,
       },
       {
         path: "login",
-        element:<Login/>
+        element: <Login />,
       },
       {
         path: "register",
-        element: <Register/>
-      }
+        element: <Register />,
+      },
     ],
   },
 ]);

@@ -7,7 +7,6 @@ import { AuthContext } from "../../providers/AuthProvider";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
-
   const handleLogout = () => {
     logOut()
       .then(() => {})
@@ -47,7 +46,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="instructors"
                   className={({ isActive }) =>
                     isActive ? "active" : "default"
                   }
@@ -57,7 +56,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="classes"
                   className={({ isActive }) =>
                     isActive ? "active" : "default"
                   }
@@ -102,7 +101,6 @@ const Navbar = () => {
                           alt=""
                         />
                       </div>
-                      
                     </div>
                   </>
                 ) : (
@@ -118,7 +116,6 @@ const Navbar = () => {
               </li>
             </ul>
 
-            
             {/* Mobile Navbar Section */}
             <div className="lg:hidden">
               {/* Dropdown Open Button */}
