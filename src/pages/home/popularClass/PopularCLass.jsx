@@ -34,12 +34,14 @@ const PopularCLass = () => {
                   <img src={data.classImage} />
                 </figure>
                 <div className="card-body mt-10">
-                  <h2 className="card-title text-2xl">{data.classTitle}</h2>
+                  <h2 className="card-title text-amber-400 font-bold tracking-wider text-2xl">
+                    {data.classTitle}
+                  </h2>
                   <div className="mt-2">
                     {data.classDescription.slice(0, 130)}... <br />
-                    <div className="mt-2 flex gap-3 items-center font-bold">
+                    <div className="mt-2 flex gap-3 text-amber-200 tracking-wider items-center font-bold">
                       Learn More
-                      <ArrowLongRightIcon className="w-8"/>
+                      <ArrowLongRightIcon className="w-8" />
                     </div>
                   </div>
                 </div>

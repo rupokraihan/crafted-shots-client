@@ -34,7 +34,10 @@ const AllClasses = () => {
               </thead>
               <tbody>
                 {classesData.map((data, index) => (
-                  <tr className="text-lg" key={data._id}>
+                  <tr
+                    className="text-lg font-sans tracking-wider"
+                    key={data._id}
+                  >
                     <td>{index + 1}</td>
                     <td>
                       <div className="flex items-center space-x-3">
@@ -49,7 +52,7 @@ const AllClasses = () => {
                       <div className="font-bold">{data.classTitle}</div>
                     </td>
                     <td>{data.availableSeats}</td>
-                    <td>
+                    <td className="font-semibold">
                       {data.instructorName} <br />
                       <span className="text-sm font-thin">
                         {data.instructorTitle}
@@ -58,7 +61,7 @@ const AllClasses = () => {
                     <td>{data.courseFee} $</td>
                     <td>
                       <button className="badge badge-warning badge-lg">
-                        Enroll
+                        <span className="p-2 font-bold">Enroll</span>
                       </button>
                     </td>
                   </tr>
