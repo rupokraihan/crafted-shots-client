@@ -16,9 +16,9 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="text-lg fixed z-10 bg-opacity-70 bg-gray-800 pt-3 pb-4  mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-0">
+      <div className="text-lg fixed z-10 bg-opacity-70 bg-gray-800 pt-2 pb-3  mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-0">
         <div>
-          <div className="relative  flex items-center justify-between px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8">
+          <div className="relative  flex items-center justify-between px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-10">
             <div className="flex items-center gap-4 ">
               {/* logo */}
               <div>

@@ -15,8 +15,6 @@ const Register = () => {
 
   const {createUser} = useContext(AuthContext)
 
-
-
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password)
@@ -38,7 +36,7 @@ const Register = () => {
             <h1 className="text-4xl font-semibold mt-20 mb-8">
               Register
               <span className="text-blue-600 font-serif font-extrabold ml-4 tracking-widest">
-                toyHaven Ville
+                Crafted Shots
               </span>
             </h1>
           </div>
@@ -143,7 +141,9 @@ const Register = () => {
                   className="input input-bordered"
                 />
                 {errors.name && (
-                  <span className="text-red-700 mt-2">Photo URL is required</span>
+                  <span className="text-red-700 mt-2">
+                    Photo URL is required
+                  </span>
                 )}
                 <label className="label">
                   <Link
