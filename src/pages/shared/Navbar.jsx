@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { XMarkIcon, Bars3BottomRightIcon } from "@heroicons/react/24/solid";
-import logo from "../../assets/logo/Crafted_Shots__1_-removebg-preview.png";
+import logo from "../../assets/logo/Crafted_Shots__2_-removebg-preview.png";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="text-lg fixed z-10 bg-opacity-70 bg-gray-800 pt-2 pb-3  mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-0">
+      <div className="text-lg fixed z-10 bg-opacity-90 bg-gray-900 pt-2 pb-3  mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-0">
         <div>
           <div className="relative  flex items-center justify-between px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-10">
             <div className="flex items-center gap-4 ">
@@ -26,14 +26,14 @@ const Navbar = () => {
 
               <div>
                 <Link to="/" className="inline-flex items-center">
-                  <span className=" text-white font-sans text-4xl font-bold tracking-wide">
+                  <span className=" text-amber-400	 font-sans text-4xl font-bold tracking-wide">
                     Crafted Shots
                   </span>
                 </Link>
               </div>
             </div>
 
-            <ul className="items-center text-white text-ellipsis hidden space-x-8 lg:flex">
+            <ul className="items-center text-amber-400	text-ellipsis hidden space-x-8 lg:flex">
               <li>
                 <NavLink
                   to="/"
