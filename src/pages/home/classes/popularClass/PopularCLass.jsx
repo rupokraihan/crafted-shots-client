@@ -28,20 +28,20 @@ const PopularCLass = () => {
 
         <div className="lg:grid gap-8 lg:grid-cols-3 mt-10">
           {classesData.map((data) => (
-            <div key={data.id}>
-              <div className="card w-96 h-80 bg-base-100 shadow-xl image-full">
+            <div key={data._id}>
+              <div className="card w-96 h-80 bg-base-100 shadow-xl image-full mx-auto">
                 <figure>
                   <img src={data.classImage} />
                 </figure>
                 <div className="card-body mt-10">
                   <h2 className="card-title text-2xl">{data.classTitle}</h2>
-                  <p className="mt-2">
+                  <div className="mt-2">
                     {data.classDescription.slice(0, 130)}... <br />
-                    <p className="mt-2 flex gap-3 items-center font-bold">
+                    <div className="mt-2 flex gap-3 items-center font-bold">
                       Learn More
                       <ArrowLongRightIcon className="w-8"/>
-                    </p>
-                  </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
