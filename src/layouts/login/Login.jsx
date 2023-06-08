@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const {
@@ -12,20 +12,35 @@ const Login = () => {
     reset,
   } = useForm();
 
-  const { signIn, setUser, signInWithGoogle } = useContext(AuthContext);
-  const [loginError, setLoginError] = useState("");
+  const { signIn, signInWithGoogle, setUser, user } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
 
   const onSubmit = async (data) => {
     try {
-      await signIn(data.email, data.password);
+      const result = await signIn(data.email, data.password);
+      setUser(result.user);
       reset();
       toast.success("Login successful!");
+      navigate(from, { replace: true });
     } catch (error) {
-      setLoginError("Invalid email or password. Please try again.");
+      if (error.code === "auth/wrong-password") {
+        setErrorMessage("Invalid email or password. Please try again.");
+      }
     }
   };
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        toast.success("Login successful!");
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+  };
+
 
   return (
     <div>
@@ -35,7 +50,7 @@ const Login = () => {
             <h1 className="text-4xl font-semibold mt-20 mb-8">
               Login
               <span className="text-blue-600 font-serif font-extrabold ml-4 tracking-widest">
-                toyHaven Ville
+                Crafted Shots
               </span>
             </h1>
           </div>
@@ -80,19 +95,23 @@ const Login = () => {
                   </div>
                 </label>
               </div>
+              {errorMessage && (
+                <div className="text-center my-1">
+                  <span className="text-red-700">{errorMessage}</span>
+                </div>
+              )}
               <div className="form-control mt-4">
                 <button className="btn bg-blue-600 text-white font-semibold border-0 tracking-widest hover:bg-gray-600">
                   Login
                 </button>
               </div>
-              {loginError && (
-                <div className="text-center mt-4">
-                  <span className="text-red-700">{loginError}</span>
-                </div>
-              )}
+
               <div className="form-control mt-4">
                 <p className="text-lg text-center mb-4">or</p>
-                <button  className="btn bg-blue-600 text-white font-semibold border-0 tracking-widest hover:bg-gray-600">
+                <button
+                  onClick={handleGoogleLogin}
+                  className="btn bg-blue-600 text-white font-semibold border-0 tracking-widest hover:bg-gray-600"
+                >
                   Sign in with Google
                 </button>
               </div>
@@ -105,3 +124,4 @@ const Login = () => {
 };
 
 export default Login;
+
