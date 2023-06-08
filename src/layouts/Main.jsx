@@ -9,7 +9,10 @@ const Main = () => {
   return (
     <div>
       <Navbar />
+      <div className='min-h-[calc(100vh-332px)]'>
+
       <Outlet />
+      </div>
       <Footer />
       <ToastContainer/>
     </div>

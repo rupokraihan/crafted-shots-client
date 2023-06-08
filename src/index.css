@@ -11,9 +11,9 @@
 }
 
 .active{
-  @apply font-bold tracking-wide text-blue-700 transition-colors duration-200 hover:text-blue-500
+  @apply font-bold tracking-wide text-orange-500 transition-colors duration-200 hover:text-orange-500
 }
 
 .default{
-  @apply font-semibold tracking-wide  transition-colors duration-200 hover:text-blue-500
+  @apply font-bold tracking-wide  transition-colors duration-200 hover:text-orange-600
 }
