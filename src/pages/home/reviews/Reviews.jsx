@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
@@ -39,35 +39,32 @@ const Reviews = () => {
         className="mySwiper"
       >
         {reviewData.map((data) => (
-          <div key={data._id}>
-            <SwiperSlide>
-              <div>
-                <div className="  h-96 bg-gray-500 rounded-xl  shadow-white text-white">
-                  <div className="py-4 px-6">
-                    <div className="flex gap-6 mb-4 items-center">
-                      <div>
-                        <img src={data.image} alt="" />
-                      </div>
-
-                      <div>
-                        <h2 className="card-title">{data.name}</h2>
-                        <p className="mt-2 text-white text-medium">
-                          {data.address}
-                        </p>
-                    
-                          <p className="mt-1">{data.date}</p>
-                        
-                      </div>
+          <SwiperSlide key={data._id}>
+            <div>
+              <div className="  h-96 bg-gray-500 rounded-xl  shadow-white text-white">
+                <div className="py-4 px-6">
+                  <div className="flex gap-6 mb-4 items-center">
+                    <div>
+                      <img src={data.image} alt="" />
                     </div>
 
-                    <div className=" mt-4 relative ">
-                      <p>{data.reviewText}</p>
+                    <div>
+                      <h2 className="card-title">{data.name}</h2>
+                      <p className="mt-2 text-white text-medium">
+                        {data.address}
+                      </p>
+
+                      <p className="mt-1">{data.date}</p>
                     </div>
+                  </div>
+
+                  <div className=" mt-4 relative ">
+                    <p>{data.reviewText}</p>
                   </div>
                 </div>
               </div>
-            </SwiperSlide>
-          </div>
+            </div>
+          </SwiperSlide>
         ))}
       </Swiper>
     </div>

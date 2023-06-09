@@ -22,6 +22,7 @@ const AuthProvider = ({children}) => {
   };
 
   const signInWithGoogle = () => {
+    setLoading(true)
     return signInWithPopup(auth, googleProvider);
   };
   const userInfo = (currentUser, name, photo) => {
@@ -58,7 +59,7 @@ const AuthProvider = ({children}) => {
     signInWithGoogle,
     setUser,
     userInfo,
-    loading
+    loading,
   };
 
 

@@ -17,6 +17,7 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const onSubmit = async (data) => {
     try {
@@ -36,7 +37,19 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         const user = result.user;
-        toast.success("Login successful!");
+        const saveUser = { name: user.displayName, email: user.email };
+
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -142,4 +155,3 @@ const Login = () => {
 };
 
 export default Login;
-
