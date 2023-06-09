@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import Swal from 'sweetalert2';
 
-const AllUsers = () => {
+const ManageUsers = () => {
   const {data:users=[],refetch} = useQuery(['users'], async () => {
     const res = await fetch("http://localhost:5000/users")
     return res.json();
@@ -80,22 +80,22 @@ const AllUsers = () => {
                   <div className="flex flex-col gap-2">
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className={`bg-orange-400 py-2 px-4 rounded-md font-serif font-semibold tracking-wider hover:bg-gray-600 border-b-4 duration-300 text-white ${
-                        user.role === "admin" || user.role === "instructor"
-                          ? "opacity-40 cursor-not-allowed"
+                      className={`bg-[#B38B37] py-2 px-4 rounded-md font-semibold hover:bg-black border-b-4 border-[#B38B37] duration-300 text-white ${
+                        user.role === "admin"
+                          ? "opacity-30 cursor-not-allowed"
                           : ""
                       }`}
                       disabled={
-                        user.role === "admin" || user.role === "instructor"
+                        user.role === "admin"
                       }
                     >
                       Make Admin
                     </button>
                     <button
                       onClick={() => handleMakeInstructor(user)}
-                      className={`bg-orange-400 py-2 px-4 rounded-md font-serif font-semibold tracking-wider hover:bg-gray-600 border-b-4 duration-300 text-white ${
-                        user.role === "admin"
-                          ? "opacity-40 cursor-not-allowed"
+                      className={`bg-[#B38B37] py-2 px-4 rounded-md font-semibold hover:bg-black border-b-4 border-[#B38B37] duration-300 text-white ${
+                        user.role === "instructor" || user.role === "admin"
+                          ? "opacity-30 cursor-not-allowed"
                           : ""
                       }`}
                       disabled={user.role === "admin"}
@@ -113,4 +113,4 @@ const AllUsers = () => {
   );
 };
 
-export default AllUsers;
+export default ManageUsers;

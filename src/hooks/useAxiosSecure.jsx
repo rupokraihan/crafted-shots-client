@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthProvider from "../providers/AuthProvider";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 const axiosSecure = axios.create({
@@ -10,7 +10,7 @@ const axiosSecure = axios.create({
 
 // axios.get()
 const useAxiosSecure = () => {
-  const { logOut } = useContext(AuthProvider);
+  const { logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
@@ -35,7 +35,7 @@ const useAxiosSecure = () => {
     
   },[logOut,navigate])
   
-  return axiosSecure;
+  return [axiosSecure];
 };
 
 export default useAxiosSecure;

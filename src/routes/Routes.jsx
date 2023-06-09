@@ -7,9 +7,9 @@ import AllClasses from "../pages/classes/AllClasses";
 import AllInstructors from "../pages/instructors/AllInstructors";
 import ErrorPage from "../components/ErrorPage";
 import Dashboard from "../layouts/dashboard/Dashboard";
-import SelectedClass from "../pages/dashboard/selectClass/SelectedClass";
+import SelectedClass from "../pages/dashboard/student/SelectedClass";
 import PrivateRoute from "./PrivateRoute";
-import AllUsers from "../pages/dashboard/allUsers/AllUsers";
+import AllUsers from "../pages/dashboard/admin/ManageUsers";
 
 const router = createBrowserRouter([
   {

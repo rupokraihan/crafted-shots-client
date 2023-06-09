@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const Dashboard = () => {
-  const isAdmin = true;
-  const isInstructor = true;
+  
 
   const { user } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   return (
     <div>
       <div className="lg:pl-40 drawer lg:drawer-open">
@@ -79,7 +82,7 @@ const Dashboard = () => {
                       isActive ? "active" : "default"
                     }
                   >
-                    My Courses
+                    Add a Class
                   </NavLink>
                 </li>
                 <li>
@@ -89,7 +92,7 @@ const Dashboard = () => {
                       isActive ? "active" : "default"
                     }
                   >
-                    My Reviews
+                    My Classes
                   </NavLink>
                 </li>
                 <li>

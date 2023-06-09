@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
-import AuthProvider from "../providers/AuthProvider";
+import useAxiosSecure from "./useAxiosSecure";
+import { AuthContext } from "../providers/AuthProvider";
 
 const useInstructor = () => {
-  const { user, loading } = useContext(AuthProvider);
-  const [axiosSecure] = useAxiosSe();
+  const { user, loading } = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
 
   const { data: isInstructor, isLoading: isInstructorLoading } = useQuery(
     ["isInstructor", user?.email],
@@ -21,3 +22,5 @@ const useInstructor = () => {
   );
   return [isInstructor,isInstructorLoading];
 };
+
+export default useInstructor;
