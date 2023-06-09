@@ -27,6 +27,27 @@ const AllUsers = () => {
       }
     })
   }
+
+  const handleMakeInstructor = user => {
+    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is Admin now!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+    
+  }
   
 
 
@@ -54,18 +75,34 @@ const AllUsers = () => {
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>Blue</td>
+                <td>1</td>
                 <td>
-                  {user.role === "admin" ? (
-                    "admin"
-                  ) : (
-                    <button onClick={()=>handleMakeAdmin(user)} className="btn">Make Admin</button>
-                  )}
-                  {user.role === "instructor" ? (
-                    "instructor"
-                  ) : (
-                    <button className="btn ml-2">Make Instructor</button>
-                  )}
+                  <div className="flex flex-col gap-2">
+                    <button
+                      onClick={() => handleMakeAdmin(user)}
+                      className={`bg-orange-400 py-2 px-4 rounded-md font-serif font-semibold tracking-wider hover:bg-gray-600 border-b-4 duration-300 text-white ${
+                        user.role === "admin" || user.role === "instructor"
+                          ? "opacity-40 cursor-not-allowed"
+                          : ""
+                      }`}
+                      disabled={
+                        user.role === "admin" || user.role === "instructor"
+                      }
+                    >
+                      Make Admin
+                    </button>
+                    <button
+                      onClick={() => handleMakeInstructor(user)}
+                      className={`bg-orange-400 py-2 px-4 rounded-md font-serif font-semibold tracking-wider hover:bg-gray-600 border-b-4 duration-300 text-white ${
+                        user.role === "admin"
+                          ? "opacity-40 cursor-not-allowed"
+                          : ""
+                      }`}
+                      disabled={user.role === "admin"}
+                    >
+                      Make Instructor
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
