@@ -7,8 +7,9 @@ import AllClasses from "../pages/classes/AllClasses";
 import AllInstructors from "../pages/instructors/AllInstructors";
 import ErrorPage from "../components/ErrorPage";
 import Dashboard from "../layouts/dashboard/Dashboard";
-import SelectedClass from "../pages/dashboard/SelectedClass";
+import SelectedClass from "../pages/dashboard/selectClass/SelectedClass";
 import PrivateRoute from "./PrivateRoute";
+import AllUsers from "../pages/dashboard/allUsers/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         path: "dashboard/selectedclass",
         element: <SelectedClass />,
       },
+      {
+        path: "allusers",
+        element:<AllUsers/>
+      }
     ],
   },
 ]);
