@@ -69,7 +69,7 @@ const Navbar = () => {
               {user && (
                 <li>
                   <NavLink
-                    to="/mytoys"
+                    to="/dashboard"
                     className={({ isActive }) =>
                       isActive ? "active" : "default"
                     }
