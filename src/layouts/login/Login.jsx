@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 
 const Login = () => {
   const {
@@ -14,6 +15,7 @@ const Login = () => {
 
   const { signIn, signInWithGoogle, setUser, user } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -41,6 +43,9 @@ const Login = () => {
       });
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
 
   return (
     <div>
@@ -76,13 +81,26 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input
-                  type="password"
-                  {...register("password", { required: true })}
-                  name="password"
-                  placeholder="password"
-                  className="input input-bordered"
-                />
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    {...register("password", { required: true })}
+                    name="password"
+                    placeholder="password"
+                    className="input input-bordered w-full"
+                  />
+                  <button
+                    type="button"
+                    className="absolute top-1/2 right-6 transform -translate-y-1/2 focus:outline-none"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? (
+                      <EyeSlashIcon className="h-5 w-5 text-gray-500" />
+                    ) : (
+                      <EyeIcon className="h-5 w-5 text-gray-500" />
+                    )}
+                  </button>
+                </div>
                 {errors.password && (
                   <span className="text-red-700 mt-2">
                     Password is required
