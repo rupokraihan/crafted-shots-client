@@ -77,7 +77,7 @@ const Dashboard = () => {
 
                 <li>
                   <NavLink
-                    to={"/instructor/courses"}
+                    to={"addclass"}
                     className={({ isActive }) =>
                       isActive ? "active" : "default"
                     }
