@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const AllInstructors = () => {
   const [instructorsData, setInstructorsData] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const { user} = useContext(AuthContext);
+
 
   useEffect(() => {
     fetch("http://localhost:5000/alldata")
       .then((res) => res.json())
-      .then((data) => setInstructorsData(data))
+
+      .then((data) => {
+        const approvedInstructors = data.filter(
+          (classes) => classes.status === "approved"
+        );
+        setInstructorsData(approvedInstructors);
+      })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
-
   return (
     <div className="pt-40 px-10">
       {isLoading ? (
@@ -24,7 +32,9 @@ const AllInstructors = () => {
               <div>
                 <img
                   className="h-64 w-44 rounded-lg"
-                  src={data.instructorImage}
+                  src={
+                    data.instructorImage ? data.instructorImage : data.photoURL
+                  }
                   alt="Instructor"
                 />
               </div>

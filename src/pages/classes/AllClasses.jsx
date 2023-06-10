@@ -5,13 +5,25 @@ const AllClasses = () => {
   const [classesData, setClassesData] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
+   
+   
+
   useEffect(() => {
     fetch("http://localhost:5000/alldata")
       .then((res) => res.json())
-      .then((data) => setClassesData(data))
+      
+      .then((data) => {const approvedClass = data.filter(
+      (classes) => classes.status === "approved"
+      )
+        setClassesData(approvedClass)
+      }
+      
+    )
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
+
+
 
   return (
     <div className="pt-40 px-10">

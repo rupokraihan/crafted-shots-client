@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 
-
 const PopularCLass = () => {
   const [classesData, setClassesData] = useState([]);
 
@@ -9,8 +8,8 @@ const PopularCLass = () => {
     fetch("http://localhost:5000/alldata")
       .then((res) => res.json())
       .then((data) => setClassesData(data))
-    .catch((error=>console.error(error)))
-  },[])
+      .catch((error) => console.error(error));
+  }, []);
   return (
     <div>
       <section className="my-container">
@@ -27,7 +26,7 @@ const PopularCLass = () => {
         </p>
 
         <div className="lg:grid gap-8 lg:grid-cols-3 mt-10">
-          {classesData.map((data) => (
+          {classesData.slice(0, 6).map((data) => (
             <div key={data._id}>
               <div className="card w-96 h-96 bg-base-100 shadow-xl image-full mx-auto">
                 <figure>

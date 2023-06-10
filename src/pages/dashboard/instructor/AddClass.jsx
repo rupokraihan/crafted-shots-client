@@ -1,17 +1,60 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+
+const image_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
 const AddClass = () => {
+  const [axiosSecure] = useAxiosSecure();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) =>
-  {
-    console.log(data);
-  }  
+  const image_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
+  const onSubmit = (data) => {
+    const formData = new FormData();
+    formData.append("image", data.classImage[0]);
+
+    fetch(image_hosting_url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgResponse) => {
+        if (imgResponse.success) {
+          const imgURL = imgResponse.data.display_url;
+          const {
+            classTitle,
+            instructorName,
+            email,
+            courseFee,
+            availableSeats,
+          } = data;
+
+          const addClass = {
+            classTitle,
+            instructorName,
+            email,
+            courseFee: parseInt(courseFee),
+            availableSeats: parseInt(availableSeats),
+            classImage: imgURL,
+            status:"pending"
+          };
+          console.log(addClass);
+          axiosSecure.post("/alldata",addClass)
+            .then(data => {
+              if (data.data.insertedId) {
+                (reset)
+              Swal.fire("Pending Approval", "Please wait...", "question");
+            }
+          })
+        }
+      });
+  };
   console.log(errors);
 
   const { user } = useContext(AuthContext);
@@ -26,13 +69,12 @@ const AddClass = () => {
 
             <div className="form-control w-full ">
               <select
+                defaultValue="Select a Class"
                 {...register("classTitle", { required: true })}
                 className="select select-bordered w-full bg-amber-50  px-6  mb-4 font-bold font-mono text-xl rounded-md border border-white focus:outline-none focus:ring-blue-900 focus:border-blue-900 placeholder-gray-500"
                 name="classTitle"
               >
-                <option disabled selected>
-                  Select a Class
-                </option>
+                <option disabled>Select a Class</option>
                 <option>Wildlife and Nature Photography</option>
                 <option>Camera Basics</option>
                 <option>Lighting and Composition</option>
@@ -82,6 +124,7 @@ const AddClass = () => {
                 <input
                   type="file"
                   className="file-input file-input-bordered w-full bg-amber-50 font-bold font-mono text-xl rounded-md border border-white focus:outline-none focus:ring-blue-900 focus:border-blue-900"
+                  name="classImage"
                   {...register("classImage", { required: true })}
                 />
               </div>

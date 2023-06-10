@@ -53,7 +53,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "selectedclass",
-        element: <SelectedClass />,
+        element: (
+          <StudentRoute>
+            <SelectedClass />
+          </StudentRoute>
+        ),
       },
       {
         path: "allusers",

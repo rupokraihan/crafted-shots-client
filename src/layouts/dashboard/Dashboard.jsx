@@ -3,13 +3,14 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
+import useStudent from "../../hooks/useStudent";
 
 const Dashboard = () => {
-  
-
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
+  const [isStudent] = useStudent();
+
   return (
     <div>
       <div className="lg:pl-40 drawer lg:drawer-open">
@@ -26,7 +27,7 @@ const Dashboard = () => {
         <div className="drawer-side">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full bg-gray-800 text-amber-400">
-            {isAdmin ? (
+            {isAdmin && (
               <>
                 <li className="mb-10 text-xl">
                   Welcome to Dashboard
@@ -66,7 +67,9 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
               </>
-            ) : isInstructor ? (
+            )}
+
+            {isInstructor && (
               <>
                 <li className="mb-10 text-xl">
                   Welcome to Dashboard
@@ -106,7 +109,9 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
               </>
-            ) : (
+            )}
+
+            {isStudent && (
               <>
                 <li className="mb-10 text-xl">
                   Welcome to Dashboard
@@ -148,7 +153,7 @@ const Dashboard = () => {
               </>
             )}
 
-            <div className="border-2  border-gray-300 my-20"></div>
+            <div className="border-2 border-gray-300 my-20"></div>
             <li>
               <NavLink
                 to="/"
