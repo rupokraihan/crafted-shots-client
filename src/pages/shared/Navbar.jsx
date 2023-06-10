@@ -13,6 +13,8 @@ const Navbar = () => {
       .catch((error) => console.error(error));
   };
 
+  
+
   return (
     <div>
       <div className="text-lg fixed z-10 bg-opacity-90 bg-gray-900 pt-2 pb-3  mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-0">
@@ -114,6 +116,7 @@ const Navbar = () => {
                   </NavLink>
                 )}
               </li>
+              
             </ul>
 
             {/* Mobile Navbar Section */}

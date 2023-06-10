@@ -90,7 +90,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to={"/instructor/reviews"}
+                    to={"myclasses"}
                     className={({ isActive }) =>
                       isActive ? "active" : "default"
                     }
