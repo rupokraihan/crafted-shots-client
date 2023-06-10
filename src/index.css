@@ -7,7 +7,7 @@
 }
 
 .my-btn{
-  @apply inline-flex items-center h-12 px-6 mb-3 font-bold text-black tracking-widest  transition duration-200 rounded shadow-md  md:mb-0 bg-amber-400 hover:bg-gray-600
+  @apply inline-flex items-center h-12 px-6 mb-3 font-bold text-black tracking-widest  transition duration-200 rounded shadow-md  md:mb-0 bg-amber-400 hover:bg-gray-300
 }
 
 .active{

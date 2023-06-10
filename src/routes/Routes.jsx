@@ -13,6 +13,7 @@ import AllUsers from "../pages/dashboard/admin/ManageUsers";
 import AddClass from "../pages/dashboard/instructor/AddClass";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
+import StudentRoute from "./StudentRoute";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "dashboard/selectedclass",
+        path: "selectedclass",
         element: <SelectedClass />,
       },
       {

@@ -117,7 +117,7 @@ const Dashboard = () => {
 
                 <li>
                   <NavLink
-                    to={"dashboard/selectedclass"}
+                    to={"selectedclass"}
                     className={({ isActive }) =>
                       isActive ? "active" : "default"
                     }
