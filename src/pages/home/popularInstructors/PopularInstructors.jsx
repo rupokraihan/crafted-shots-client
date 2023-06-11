@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Fade} from "react-awesome-reveal";
 
 const PopularInstructors = () => {
   const [classesData, setClassesData] = useState([]);
@@ -27,21 +28,23 @@ const PopularInstructors = () => {
         <div className="lg:grid gap-2 lg:grid-cols-3 mt-10 shadow-2xl">
           {classesData.slice(0, 6).map((data) => (
             <div key={data._id} className="w-full">
-              <div className="w-96 bg-base-100 mx-auto">
-                <div className="card-body">
-                  <img
-                    className="h-96 rounded-xl"
-                    src={data.instructorImage}
-                    alt=""
-                  />
-                  <h2 className="text-center text-2xl font-bold tracking-wider">
-                    {data.instructorName}
-                  </h2>
-                  <p className="text-center tracking-wider">
-                    {data.instructorTitle}
-                  </p>
+              <Fade>
+                <div className="w-96 bg-base-100 mx-auto">
+                  <div className="card-body">
+                    <img
+                      className="h-96 rounded-xl"
+                      src={data.instructorImage}
+                      alt=""
+                    />
+                    <h2 className="text-center text-2xl font-bold tracking-wider">
+                      {data.instructorName}
+                    </h2>
+                    <p className="text-center tracking-wider">
+                      {data.instructorTitle}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Fade>
             </div>
           ))}
         </div>
