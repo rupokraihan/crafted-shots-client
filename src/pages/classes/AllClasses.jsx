@@ -77,7 +77,7 @@ const AllClasses = () => {
           <div className="overflow-x-auto mb-16">
             <table className="table">
               <thead>
-                <tr className="text-lg font-semibold font-serif tracking-wider">
+                <tr className="text-lg font-semibold font-serif tracking-wider text-center">
                   <th>#</th>
                   <th>Class Image</th>
                   <th>Class Name</th>
@@ -90,7 +90,7 @@ const AllClasses = () => {
               <tbody>
                 {classesData.map((data, index) => (
                   <tr
-                    className="text-lg font-sans tracking-wider"
+                    className="text-lg font-sans tracking-wider text-center"
                     key={data._id}
                   >
                     <td>{index + 1}</td>

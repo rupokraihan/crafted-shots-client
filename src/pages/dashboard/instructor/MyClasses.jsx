@@ -42,7 +42,7 @@ const MyClasses = () => {
           <div className="overflow-x-auto">
             <table className="table">
               <thead>
-                <tr className="text-lg font-semibold font-serif tracking-wider">
+                <tr className="text-lg font-semibold font-serif tracking-wider text-center">
                   <th>#</th>
                   <th>Class Image</th>
                   <th>Class Name</th>
@@ -56,7 +56,7 @@ const MyClasses = () => {
               <tbody>
                 {myClasses.map((classItem, index) => (
                   <tr
-                    className="text-lg font-sans tracking-wider"
+                    className="text-lg font-sans tracking-wider text-center"
                     key={classItem._id}
                   >
                     <td>{index + 1}</td>

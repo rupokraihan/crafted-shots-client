@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Fade} from "react-awesome-reveal";
+import {Fade} from "react-awesome-reveal";
 
 const PopularInstructors = () => {
   const [classesData, setClassesData] = useState([]);
