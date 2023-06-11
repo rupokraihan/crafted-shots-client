@@ -25,10 +25,10 @@ const PopularCLass = () => {
           photography skills to new heights."
         </p>
 
-        <div className="lg:grid gap-8 lg:grid-cols-3 mt-10">
+        <div className="lg:grid gap-8 lg:grid-cols-3 mt-10 ">
           {classesData.slice(0, 6).map((data) => (
             <div key={data._id}>
-              <div className="card w-96 h-96 bg-base-100 shadow-xl image-full mx-auto">
+              <div className="card w-96 h-96 mb-4 bg-base-100 shadow-xl image-full mx-auto">
                 <figure>
                   <img src={data.classImage} />
                 </figure>

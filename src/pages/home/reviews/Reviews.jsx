@@ -13,6 +13,16 @@ const Reviews = () => {
       .then((data) => setReviewData(data))
       .catch((error) => console.error(error));
   }, []);
+
+  const swiperResponsiveConfig = {
+    520: {
+      slidesPerView: 1, // For mobile devices
+    },
+    968: {
+      slidesPerView: 4, // For desktop and larger screens
+    },
+  };
+
   return (
     <div className="my-container">
       <h2 className="text-4xl tracking-widest font-bold text-center mb-6">
@@ -28,7 +38,7 @@ const Reviews = () => {
       </p>
 
       <Swiper
-        slidesPerView={4}
+        breakpoints={swiperResponsiveConfig}
         centeredSlides={true}
         spaceBetween={30}
         grabCursor={true}

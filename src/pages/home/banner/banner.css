@@ -1,7 +1,22 @@
-.carousel .slider-wrapper{
- height: 805px;
+.carousel .slider-wrapper {
+  height: 805px;
+  
 }
 
-.carousel .thumb{
+.carousel .thumb {
   height: 40px;
 }
+
+/* for mobile devices */
+@media (max-width: 600px) {
+  .carousel .slider-wrapper {
+    height: 200px;
+    margin-top: 100px;
+    width: 100%;
+    
+  }
+  
+}
+
+
+

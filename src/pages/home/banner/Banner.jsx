@@ -31,7 +31,7 @@ const Banner = () => {
           <img src={sliderImg4} />
         </div>
       </Carousel>
-      <div className=" text-white ml-20 absolute top-1/3 mt-20    transform  -translate-y-1/2">
+      <div className=" lg:text-white ml-5 lg:ml-20 lg:absolute top-1/3 mt-20    transform  lg:-translate-y-1/2">
         <h1 className="text-7xl font-bold tracking-wide font-sans">
           A Beginner's Guide <br /> to Elevating Your <br /> Photography <br />
           Skills

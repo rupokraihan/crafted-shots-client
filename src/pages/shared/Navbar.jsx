@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { XMarkIcon, Bars3BottomRightIcon } from "@heroicons/react/24/solid";
-import logo from "../../assets/logo/Crafted_Shots_logo.png"
+import logo from "../../assets/logo/Crafted_Shots_logo.png";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
@@ -128,7 +128,7 @@ const Navbar = () => {
                 <Bars3BottomRightIcon className="w-8" />
               </button>
               {isMenuOpen && (
-                <div className="absolute top-0 left-0 w-full z-10">
+                <div className="absolute top-0 left-0 w-full">
                   <div className=" bg-gray-800 border rounded shadow-sm">
                     {/* Logo & Button section */}
                     <div className="flex items-center justify-between mb-4">
