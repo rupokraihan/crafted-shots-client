@@ -4,52 +4,64 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AllClasses = () => {
   const [classesData, setClassesData] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [axiosSecure] = useAxiosSecure();
   const [selectedClasses, setSelectedClasses] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/alldata")
       .then((res) => res.json())
       .then((data) => {
-        const approvedClass = data.filter((classes) => classes.status === "approved");
+        const approvedClass = data.filter(
+          (classes) => classes.status === "approved"
+        );
         setClassesData(approvedClass);
       })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
 
-  const handleSelectClass = (classId) => {
+  const handleSelectClass = (classData) => {
+    if (user && user.email) {
+      classData.selectedClass = "selected";
+      const selectItem = {
+        image: classData.classImage,
+        email: user.email,
+        classId: classData._id,
+        title: classData.classTitle,
+        instructor: classData.instructorName,
+        availableSeats: classData.availableSeats,
+        courseFee: classData.courseFee,
+        selectedClass: classData.selectedClass,
+      };
 
-    console.log(classId)
-
-
-    if (!user) {
-      Swal.fire({
-        title: "You have to log in first to select a class",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
-
-        icon: "question",
-      });
-      navigate("/login");
-      return;
-    }
-    const isSelected = selectedClasses.includes(classId);
-
-    if (isSelected) {
-      const updatedClasses = selectedClasses.filter((id) => id !== classId);
-      setSelectedClasses(updatedClasses);
+      axiosSecure.post("/selectedclass", selectItem).then((classData) => {
+        if (classData.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Class selected successfully",
+            showConfirmButton: false,
+            timer: 700,
+          });
+        }
+      })
     } else {
-      setSelectedClasses([...selectedClasses, classId]);
+      Swal.fire({
+        position: "center",
+        icon: "question",
+        title: "You have to log in first to select a class",
+        showConfirmButton: false,
+        timer: 1000,
+      }).then(() => {
+        navigate("/login");
+      });
     }
   };
 
@@ -103,23 +115,13 @@ const AllClasses = () => {
                     </td>
                     <td>{data.courseFee} $</td>
                     <td>
-
                       <button
-                        className={`badge badge-lg ${
-                          selectedClasses.includes(data)
-                            ? "badge-success"
-                            : "badge-warning"
-                        }`}
                         onClick={() => handleSelectClass(data)}
+                        className="badge badge-lg badge-warning"
                       >
-                        <span className="p-2 font-bold">
-                          {selectedClasses.includes(data)
-                            ? "Selected"
-                            : "Select"}
-                        </span>
+                        Select
                       </button>
                     </td>
-
                   </tr>
                 ))}
               </tbody>
@@ -129,7 +131,6 @@ const AllClasses = () => {
       )}
     </div>
   );
-}
+};
 
 export default AllClasses;
-

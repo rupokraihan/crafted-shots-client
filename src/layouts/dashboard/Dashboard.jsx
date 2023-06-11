@@ -103,7 +103,7 @@ const Dashboard = () => {
                     }
                   >
                     <DocumentCheckIcon className="text-amber-500 h-6" />
-                    Selected Classes
+                    My Selected Classes
                   </NavLink>
                 </li>
                 <li>

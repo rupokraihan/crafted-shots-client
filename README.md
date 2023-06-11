@@ -26,5 +26,5 @@ The Extra-Curricular Learning Photography School Website serves as a comprehensi
 
 ## Contact
 
-For any inquiries or questions, feel free to contact us at [rupokraihan20@gmail.com](mailto:rupokraihan20@gmail.com).
+For any inquiries or questions, feel free to contact me at [rupokraihan20@gmail.com](mailto:rupokraihan20@gmail.com).
 
