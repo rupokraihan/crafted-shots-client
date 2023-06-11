@@ -21,6 +21,7 @@ The Extra-Curricular Learning Photography School Website serves as a comprehensi
 - Tanstack Query: A collection of libraries and tools for building scalable and efficient React applications.
 - axios: Used for making HTTP requests.
 - Hero Icons: Used for adding icons to the user interface
+- react-awesome-reveal: A library for adding stunning animations to components in the home page.
 - dotenv: Used for managing environment variables.
 
 ## Features
