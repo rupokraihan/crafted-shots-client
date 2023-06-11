@@ -1,11 +1,40 @@
 import useMyclass from "../../../hooks/useMYCLass";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../../components/LoadingSpinner";
+import Swal from "sweetalert2";
+import { useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const MySelectedClass = () => {
   const [myClasses, isLoading, refetch] = useMyclass();
+  const [axiosSecure] = useAxiosSecure();
 
-  
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .delete(`selectedmyclass/${id}`)
+          .then((res) => {
+            console.log(res.data);
+            refetch()
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+             
+            }
+          })
+          .catch((error) => console.error(error));
+      }
+    });
+  };
 
   return (
     <div>
@@ -57,7 +86,10 @@ const MySelectedClass = () => {
                       </Link>
                     </td>
                     <td>
-                      <button className="badge badge-error badge-lg">
+                      <button
+                        onClick={() => handleDelete(selectedClass._id)}
+                        className="badge badge-error badge-lg"
+                      >
                         <span className="p-3 font-bold">Delete</span>
                       </button>
                     </td>
