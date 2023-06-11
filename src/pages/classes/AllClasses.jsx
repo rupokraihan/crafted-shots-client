@@ -44,7 +44,10 @@ const AllClasses = () => {
         <LoadingSpinner />
       ) : (
         <div>
-          <div className="overflow-x-auto">
+          <h2 className="text-4xl tracking-widest font-bold text-center mb-16">
+            Our All Courses
+          </h2>
+          <div className="overflow-x-auto ">
             <table className="table">
               <thead>
                 <tr className="text-lg font-semibold font-serif tracking-wider">
@@ -59,7 +62,10 @@ const AllClasses = () => {
               </thead>
               <tbody>
                 {classesData.map((data, index) => (
-                  <tr className="text-lg font-sans tracking-wider" key={data._id}>
+                  <tr
+                    className="text-lg font-sans tracking-wider"
+                    key={data._id}
+                  >
                     <td>{index + 1}</td>
                     <td>
                       <div className="flex items-center space-x-3">
@@ -76,17 +82,24 @@ const AllClasses = () => {
                     <td>{data.availableSeats}</td>
                     <td className="font-semibold">
                       {data.instructorName} <br />
-                      <span className="text-sm font-thin">{data.instructorTitle}</span>
+                      <span className="text-sm font-thin">
+                        {data.instructorTitle}
+                      </span>
                     </td>
                     <td>{data.courseFee} $</td>
                     <td>
                       <button
-                        className={`badge badge-lg ${selectedClasses.includes(data._id) ? "badge-success" : "badge-warning"
-                          }`}
+                        className={`badge badge-lg ${
+                          selectedClasses.includes(data._id)
+                            ? "badge-success"
+                            : "badge-warning"
+                        }`}
                         onClick={() => handleSelectClass(data._id)}
                       >
                         <span className="p-2 font-bold">
-                          {selectedClasses.includes(data._id) ? "Selected" : "Select"}
+                          {selectedClasses.includes(data._id)
+                            ? "Selected"
+                            : "Select"}
                         </span>
                       </button>
                     </td>
@@ -98,7 +111,7 @@ const AllClasses = () => {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export default AllClasses;

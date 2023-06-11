@@ -26,30 +26,40 @@ const AllInstructors = () => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <div className=" my-container grid grid-cols-3 gap-8">
-          {instructorsData.map((data) => (
-            <div key={data._id} className="flex bg-base-100 shadow-xl">
-              <div>
-                <img
-                  className="h-64 w-44 rounded-lg"
-                  src={
-                    data.instructorImage ? data.instructorImage : data.photoURL
-                  }
-                  alt="Instructor"
-                />
+        <>
+          <h2 className="text-4xl tracking-widest font-bold text-center">
+            Our All Instructors
+          </h2>
+          <div className=" my-container lg:grid grid-cols-3 gap-8">
+            {instructorsData.map((data) => (
+              <div
+                key={data._id}
+                className="flex bg-base-100 shadow-lg mb-4 border-2"
+              >
+                <div>
+                  <img
+                    className="h-64 w-44 rounded-lg"
+                    src={
+                      data.instructorImage
+                        ? data.instructorImage
+                        : data.photoURL
+                    }
+                    alt="Instructor"
+                  />
+                </div>
+                <div className="ml-4 mt-8">
+                  <h2 className="text-xl font-bold">{data.instructorName}</h2>
+                  <h5 className="mb-4 font-lg text-gray-500">
+                    {data.instructorTitle}
+                  </h5>
+                  <p>
+                    Email: <span className="text-blue-500">{data.email}</span>
+                  </p>
+                </div>
               </div>
-              <div className="ml-4 mt-8">
-                <h2 className="text-xl font-bold">{data.instructorName}</h2>
-                <h5 className="mb-4 font-lg text-gray-500">
-                  {data.instructorTitle}
-                </h5>
-                <p>
-                  Email: <span className="text-blue-500">{data.email}</span>
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
