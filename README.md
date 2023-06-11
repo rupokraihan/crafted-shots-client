@@ -34,8 +34,8 @@ The Extra-Curricular Learning Photography School Website serves as a comprehensi
   - Additional attractive sections with animation effects.
 
 - Navbar:
- - Navbar with website logo/name, Home, Instructors, Classes, Dashboard, and a conditional user
- - These navbar links provide convenient and quick access to different sections of our photography school website, allowing users to navigate easily and find the information or features they are looking for.
+  - Navbar with website logo/name, Home, Instructors, Classes, Dashboard, and a conditional user
+  - These navbar links provide convenient and quick access to different sections of our photography school website, allowing users to navigate easily and find the information or features they are looking for.
 
 - User Registration and Login System:
   - Users can register with their name, email, password, and photo URL.
