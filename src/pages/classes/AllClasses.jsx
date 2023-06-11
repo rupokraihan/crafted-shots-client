@@ -24,6 +24,10 @@ const AllClasses = () => {
   }, []);
 
   const handleSelectClass = (classId) => {
+
+    console.log(classId)
+
+
     if (!user) {
       Swal.fire({
         title: "You have to log in first to select a class",
@@ -58,7 +62,7 @@ const AllClasses = () => {
           <h2 className="text-4xl tracking-widest font-bold text-center mb-16">
             Our All Courses
           </h2>
-          <div className="overflow-x-auto ">
+          <div className="overflow-x-auto mb-16">
             <table className="table">
               <thead>
                 <tr className="text-lg font-semibold font-serif tracking-wider">
@@ -99,21 +103,23 @@ const AllClasses = () => {
                     </td>
                     <td>{data.courseFee} $</td>
                     <td>
+
                       <button
                         className={`badge badge-lg ${
-                          selectedClasses.includes(data._id)
+                          selectedClasses.includes(data)
                             ? "badge-success"
                             : "badge-warning"
                         }`}
-                        onClick={() => handleSelectClass(data._id)}
+                        onClick={() => handleSelectClass(data)}
                       >
                         <span className="p-2 font-bold">
-                          {selectedClasses.includes(data._id)
+                          {selectedClasses.includes(data)
                             ? "Selected"
                             : "Select"}
                         </span>
                       </button>
                     </td>
+
                   </tr>
                 ))}
               </tbody>

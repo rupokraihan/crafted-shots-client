@@ -25,8 +25,8 @@ const Navbar = () => {
               </div>
 
               <div>
-                <Link to="/" className="inline-flex items-center">
-                  <span className=" text-amber-400	 font-sans lg:text-4xl text-2xl font-bold tracking-wide">
+                <Link to="/" className="inline-flex items-center ">
+                  <span className=" text-amber-400 hidden lg:block 	 font-sans lg:text-4xl text-2xl font-bold tracking-wide">
                     Crafted Shots
                   </span>
                 </Link>
@@ -140,7 +140,7 @@ const Navbar = () => {
                             alt=""
                           />
                         </Link>
-                        <h1 className="text-amber-400 font-bold text-2xl flex items-center">
+                        <h1 className="text-amber-400 font-bold text-3xl flex items-center">
                           Crafted Shots
                         </h1>
                       </div>
@@ -187,13 +187,13 @@ const Navbar = () => {
                         </li>
                         {user && (
                           <li>
-                            <NavLink
+                            <Link
                               to="/Dashboard"
                               className="block
                              px-4 font-semibold  text-amber-400 hover:text-amber-500"
                             >
                               Dashboard
-                            </NavLink>
+                            </Link>
                           </li>
                         )}
 
@@ -203,23 +203,23 @@ const Navbar = () => {
                             <>
                               <div className="gap-6 mb-4">
                                 {/* Sign Out button */}
-                                <NavLink
+                                <Link
                                   onClick={handleLogout}
                                   className="block
                              px-4 font-semibold  text-amber-400 hover:text-amber-500"
                                 >
                                   Sign out
-                                </NavLink>
+                                </Link>
                               </div>
                             </>
                           ) : (
-                            <NavLink
+                            <Link
                               to="/login"
                               className="block
                              px-4 font-semibold  text-amber-400 hover:text-amber-500"
                             >
                               Login
-                            </NavLink>
+                            </Link>
                           )}
                         </li>
                       </ul>

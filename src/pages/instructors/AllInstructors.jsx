@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { AuthContext } from "../../providers/AuthProvider";
+import avatar from "../../assets/avatar/PngItem_785792.png"
 
 const AllInstructors = () => {
   const [instructorsData, setInstructorsData] = useState([]);
@@ -34,17 +35,12 @@ const AllInstructors = () => {
             {instructorsData.map((data) => (
               <div
                 key={data._id}
-                className="flex bg-base-100 shadow-lg mb-4 border-2"
+                className="flex bg-amber-100 rounded-xl shadow-lg mb-4"
               >
                 <div>
                   <img
-                    className="h-64 w-44 rounded-lg"
-                    src={
-                      data.instructorImage
-                        ? data.instructorImage
-                        : data.photoURL
-                    }
-                    alt="Instructor"
+                    className="h-64 w-44  rounded-xl"
+                    src={data.instructorImage ? data.instructorImage : avatar}
                   />
                 </div>
                 <div className="ml-4 mt-8">
