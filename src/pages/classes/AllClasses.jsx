@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const AllClasses = () => {
   const [classesData, setClassesData] = useState([]);
@@ -24,7 +25,17 @@ const AllClasses = () => {
 
   const handleSelectClass = (classId) => {
     if (!user) {
-      toast("You have to log in first to select a class");
+      Swal.fire({
+        title: "You have to log in first to select a class",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+
+        icon: "question",
+      });
       navigate("/login");
       return;
     }

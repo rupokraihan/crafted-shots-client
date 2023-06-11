@@ -4,6 +4,9 @@ import { AuthContext } from "../../providers/AuthProvider";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
 import useStudent from "../../hooks/useStudent";
+import logo from "../../assets/logo/Crafted_Shots_logo.png"
+import { AdjustmentsHorizontalIcon, ClipboardDocumentCheckIcon, CreditCardIcon, DocumentCheckIcon, DocumentMagnifyingGlassIcon, HomeIcon, MapPinIcon, UserCircleIcon, UserGroupIcon, UserPlusIcon, UsersIcon, ViewColumnsIcon } from "@heroicons/react/24/solid";
+
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -24,18 +27,20 @@ const Dashboard = () => {
             Open drawer
           </label>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side ">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full bg-gray-800 text-amber-400">
+            <div>
+              <Link to={"/"}>
+                <img
+                  src={logo}
+                  className="w-48 h-30 mx-auto mb-20 lg:mb-44"
+                  alt=""
+                />
+              </Link>
+            </div>
             {isAdmin && (
               <>
-                <li className="mb-10 text-xl">
-                  Welcome to Dashboard
-                  <span className="text-2xl text-white font-semibold tracking-wider">
-                    {user?.displayName}
-                  </span>
-                </li>
-
                 <li>
                   <NavLink
                     to={"manageclasses"}
@@ -43,6 +48,7 @@ const Dashboard = () => {
                       isActive ? "active" : "default"
                     }
                   >
+                    <DocumentMagnifyingGlassIcon className="text-amber-500 h-6" />
                     Manage Classes
                   </NavLink>
                 </li>
@@ -53,6 +59,7 @@ const Dashboard = () => {
                       isActive ? "active" : "default"
                     }
                   >
+                    <UserCircleIcon className="text-amber-500 h-6" />
                     Manage Users
                   </NavLink>
                 </li>
@@ -61,13 +68,6 @@ const Dashboard = () => {
 
             {isInstructor && (
               <>
-                <li className="mb-10 text-xl">
-                  Welcome to Dashboard
-                  <span className="text-2xl text-white font-semibold tracking-wider">
-                    {user?.displayName}
-                  </span>
-                </li>
-
                 <li>
                   <NavLink
                     to={"addclass"}
@@ -75,6 +75,7 @@ const Dashboard = () => {
                       isActive ? "active" : "default"
                     }
                   >
+                    <UserPlusIcon className="text-amber-500 h-6"></UserPlusIcon>
                     Add a Class
                   </NavLink>
                 </li>
@@ -85,17 +86,8 @@ const Dashboard = () => {
                       isActive ? "active" : "default"
                     }
                   >
+                    <UserGroupIcon className="text-amber-500 h-6"></UserGroupIcon>
                     My Classes
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to={"/instructor/earnings"}
-                    className={({ isActive }) =>
-                      isActive ? "active" : "default"
-                    }
-                  >
-                    Earnings
                   </NavLink>
                 </li>
               </>
@@ -103,13 +95,6 @@ const Dashboard = () => {
 
             {isStudent && (
               <>
-                <li className="mb-10 text-xl">
-                  Welcome to Dashboard
-                  <span className="text-2xl text-white font-semibold tracking-wider">
-                    {user?.displayName}
-                  </span>
-                </li>
-
                 <li>
                   <NavLink
                     to={"selectedclass"}
@@ -117,6 +102,7 @@ const Dashboard = () => {
                       isActive ? "active" : "default"
                     }
                   >
+                    <DocumentCheckIcon className="text-amber-500 h-6" />
                     Selected Classes
                   </NavLink>
                 </li>
@@ -127,6 +113,7 @@ const Dashboard = () => {
                       isActive ? "active" : "default"
                     }
                   >
+                    <AdjustmentsHorizontalIcon className="text-amber-500 h-6" />
                     Enrolled Classes
                   </NavLink>
                 </li>
@@ -137,6 +124,7 @@ const Dashboard = () => {
                       isActive ? "active" : "default"
                     }
                   >
+                    <CreditCardIcon className="text-amber-500 h-6" />
                     Payment History
                   </NavLink>
                 </li>
@@ -149,6 +137,7 @@ const Dashboard = () => {
                 to="/"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
+                <HomeIcon className="text-amber-500 h-6" />
                 Home
               </NavLink>
             </li>
@@ -157,6 +146,7 @@ const Dashboard = () => {
                 to={"/instructors"}
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
+                <UsersIcon className="text-amber-500 h-6" />
                 Instructors
               </NavLink>
             </li>
@@ -165,6 +155,7 @@ const Dashboard = () => {
                 to={"/classes"}
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
+                <ClipboardDocumentCheckIcon className="text-amber-500 h-6" />
                 Classes
               </NavLink>
             </li>
@@ -173,6 +164,7 @@ const Dashboard = () => {
                 to="/"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
+                <ViewColumnsIcon className="text-amber-500 h-6" />
                 Review
               </NavLink>
             </li>
@@ -181,6 +173,7 @@ const Dashboard = () => {
                 to="/"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
+                <MapPinIcon className="text-amber-500 h-6" />
                 Contract
               </NavLink>
             </li>

@@ -63,17 +63,16 @@ const Login = () => {
   return (
     <div>
       <div className="hero bg-white">
-        <div className="hero-content flex-col">
-          <div className="text-center">
-            <h1 className="text-4xl font-semibold mt-20 mb-8">
-              Login
-              <span className="text-blue-600 font-serif font-extrabold ml-4 tracking-widest">
-                Crafted Shots
-              </span>
-            </h1>
-          </div>
-
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="hero-content flex-col mt-36 mb-20  lg:w-1/4">
+          <div className="card flex-shrink-0 w-full max-w-6xl shadow-2xl bg-base-100">
+            <div className="ml-8">
+              <h1 className="text-4xl font-semibold mt-10 mb-2">
+                Welcome Back !
+              </h1>
+                <p className="text-gray-400 font-serif font-extrabold tracking-widest">
+                  Sign in to continue access
+                </p>
+            </div>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
