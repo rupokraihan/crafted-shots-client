@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { XMarkIcon, Bars3BottomRightIcon } from "@heroicons/react/24/solid";
-import logo from "../../assets/logo/Crafted_Shots__2_-removebg-preview.png";
+import logo from "../../assets/logo/Crafted_Shots_logo.png"
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
@@ -13,22 +13,20 @@ const Navbar = () => {
       .catch((error) => console.error(error));
   };
 
-  
-
   return (
     <div>
-      <div className="text-lg fixed z-10 bg-opacity-90 bg-gray-900 pt-2 pb-3  mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-0">
+      <div className="text-lg fixed z-10 bg-opacity-90 bg-gray-900 pt-2 pb-3  mx-auto  w-full">
         <div>
-          <div className="relative  flex items-center justify-between px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-10">
+          <div className="relative  flex items-center justify-between px-3 mx-auto  lg:max-w-screen-2xl lg:px-10">
             <div className="flex items-center gap-4 ">
-              {/* logo */}
+              {/*Website logo */}
               <div>
                 <img className="h-[80px] w-[150px]" src={logo} alt="" />
               </div>
 
               <div>
                 <Link to="/" className="inline-flex items-center">
-                  <span className=" text-amber-400	 font-sans text-4xl font-bold tracking-wide">
+                  <span className=" text-amber-400	 font-sans lg:text-4xl text-2xl font-bold tracking-wide">
                     Crafted Shots
                   </span>
                 </Link>
@@ -116,7 +114,6 @@ const Navbar = () => {
                   </NavLink>
                 )}
               </li>
-              
             </ul>
 
             {/* Mobile Navbar Section */}
@@ -125,87 +122,91 @@ const Navbar = () => {
               <button
                 aria-label="Open Menu"
                 title="Open Menu"
+                className="text-amber-600 hover:text-amber-500 focus:outline-none"
                 onClick={() => setIsMenuOpen(true)}
               >
-                <Bars3BottomRightIcon className="w-5" />
+                <Bars3BottomRightIcon className="w-8" />
               </button>
               {isMenuOpen && (
                 <div className="absolute top-0 left-0 w-full z-10">
-                  <div className="p-5 bg-white border rounded shadow-sm">
+                  <div className=" bg-gray-800 border rounded shadow-sm">
                     {/* Logo & Button section */}
                     <div className="flex items-center justify-between mb-4">
-                      <div>
+                      <div className="flex gap-2">
                         <Link to="/" className="inline-flex items-center">
-                          <span className="ml-2 text-3xl font-bold tracking-wide text-gray-800">
-                            toyHaven Ville
-                          </span>
+                          <img
+                            className="h-[72px] w-[140px] ml-2"
+                            src={logo}
+                            alt=""
+                          />
                         </Link>
+                        <h1 className="text-amber-400 font-bold text-2xl flex items-center">
+                          Crafted Shots
+                        </h1>
                       </div>
                       {/* Dropdown menu close button */}
                       <div>
                         <button
-                          aria-label="Close Menu"
-                          title="Close Menu"
+                          type="button"
+                          className="text-amber-600 hover:text-amber-500 focus:outline-none"
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          <XMarkIcon className="w-5 text-gray-600" />
+                          <XMarkIcon className="w-8 mt-4 mr-3" />
                         </button>
                       </div>
                     </div>
                     {/* Mobile Nav Items Section */}
                     <nav>
-                      <ul className="space-y-4">
+                      <ul className="space-y-2">
                         <li>
-                          <Link to="/" className="default">
+                          <Link
+                            to="/"
+                            className="block
+                             px-4 font-semibold  text-amber-400 hover:text-amber-500"
+                          >
                             Home
                           </Link>
                         </li>
                         <li>
                           <Link
-                            to="/alltoys"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                            to="instructors"
+                            className="block
+                             px-4 font-semibold  text-amber-400 hover:text-amber-500"
                           >
-                            All Toys
+                            Instructors
                           </Link>
                         </li>
                         <li>
                           <Link
-                            to="/blogs"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                            to="/classes"
+                            className="block
+                             px-4 font-semibold  text-amber-400 hover:text-amber-500"
                           >
-                            Blog
+                            Classes
                           </Link>
                         </li>
                         {user && (
                           <li>
                             <NavLink
-                              to="/mytoys"
-                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                              to="/Dashboard"
+                              className="block
+                             px-4 font-semibold  text-amber-400 hover:text-amber-500"
                             >
-                              My Toys
+                              Dashboard
                             </NavLink>
                           </li>
                         )}
 
-                        {user && (
-                          <li>
-                            <NavLink
-                              to="/addtoy"
-                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
-                            >
-                              Add A Toy
-                            </NavLink>
-                          </li>
-                        )}
                         <li>
                           {/* Conditional rendering for user profile and login/logout */}
                           {user ? (
                             <>
-                              <div className="lg:flex gap-6 space-x-2">
+                              <div className="gap-6 mb-4">
                                 {/* Sign Out button */}
                                 <NavLink
                                   onClick={handleLogout}
-                                  className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                                  className="block
+                             px-4 font-semibold  text-amber-400 hover:text-amber-500"
                                 >
                                   Sign out
                                 </NavLink>
@@ -214,7 +215,8 @@ const Navbar = () => {
                           ) : (
                             <NavLink
                               to="/login"
-                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                              className="block
+                             px-4 font-semibold  text-amber-400 hover:text-amber-500"
                             >
                               Login
                             </NavLink>

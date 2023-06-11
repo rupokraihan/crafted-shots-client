@@ -80,7 +80,7 @@ const ManageUsers = () => {
                   <div className="flex flex-col gap-2">
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className={`bg-[#B38B37] py-2 px-4 rounded-md font-semibold hover:bg-black border-b-4 border-[#B38B37] duration-300 text-white ${
+                      className={`bg-amber-600 py-2 px-4 rounded-md font-semibold hover:bg-black border-b-4 border-[#B38B37] duration-300 text-white ${
                         user.role === "admin"
                           ? "opacity-30 cursor-not-allowed"
                           : ""

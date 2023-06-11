@@ -5,7 +5,6 @@ import PopularInstructors from "../popularInstructors/PopularInstructors";
 import Reviews from "../reviews/Reviews";
 import { darkTheme, lightTheme } from "../theme/theme";
 
-
 const Home = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
@@ -18,7 +17,7 @@ const Home = () => {
   return (
     <div className={`transition duration-500 ${themeClass}`}>
       <button
-        className="fixed z-10 top-7 right-36 px-4 py-2 bg-amber-600 rounded-full shadow-lg"
+        className="fixed z-10 top-7 right-16 lg:right-36 px-4 py-2 bg-amber-600 rounded-full shadow-lg"
         onClick={toggleTheme}
       >
         {isDarkTheme ? "Light" : "Dark"}
@@ -27,7 +26,6 @@ const Home = () => {
       <PopularCLass />
       <PopularInstructors />
       <Reviews />
-      
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo/Crafted_Shots__2_-removebg-preview.png";
+import logo from "../../assets/logo/Crafted_Shots_logo.png";
 
 const Footer = () => {
   return (
