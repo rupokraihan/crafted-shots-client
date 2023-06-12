@@ -2,7 +2,7 @@
 - Welcome to the Extra-Curricular Learning Photography School Crafted Shots ! This full-stack project is dedicated to providing an online platform for extra-curricular learning in the field of photography.
 
 ## Live Link
-Hosted in Firebase -> [Crafted Shots]()
+Hosted in Firebase -> [Crafted Shots](https://crafted-shots.web.app/)
 
 ## Project Description
 The Extra-Curricular Learning Photography School Website serves as a comprehensive online learning platform for photography enthusiasts of all skill levels. It offers a wide range of courses, tutorials, resources, and community features to enhance the learning experience. The website is designed to provide a user-friendly interface, allowing students to enroll in courses, access learning materials, participate in practical exercises, and interact with instructors and fellow learners.
