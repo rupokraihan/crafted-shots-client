@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="lg:pl-40 drawer lg:drawer-open">
+      <div className="lg:pl-0 drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col mt-20 mx-10">
           <Outlet />
@@ -34,11 +34,12 @@ const Dashboard = () => {
               <Link to={"/"}>
                 <img
                   src={logo}
-                  className="w-48 h-30 mx-auto mb-20 lg:mb-44"
+                  className="w-40 h-30 mx-auto mb-20 lg:mb-44"
                   alt=""
                 />
               </Link>
             </div>
+            
             {isAdmin && (
               <>
                 <li>

@@ -18,7 +18,7 @@ const ManageUsers = () => {
         if (data.modifiedCount) {
           refetch();
         Swal.fire({
-          position: "top-end",
+          position: "center",
           icon: "success",
           title: `${user.name} is Admin now!`,
           showConfirmButton: false,
@@ -60,7 +60,7 @@ const ManageUsers = () => {
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="text-lg font-semibold font-serif tracking-wider text-center">
             <tr>
               <th>#</th>
               <th>Name</th>
@@ -69,31 +69,29 @@ const ManageUsers = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="font-medium text-gray-700 text-center tracking-wider">
             {users.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
-                <td>1</td>
+                <td>{user.role ? user.role : "Student"}</td>
                 <td>
                   <div className="flex flex-col gap-2">
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className={`bg-amber-600 py-2 px-4 rounded-md font-semibold hover:bg-black border-b-4 border-[#B38B37] duration-300 text-white ${
+                      className={`bg-amber-700 text-white w-1/2 mx-auto py-2 px-4 rounded-md font-semibold hover:bg-black border-b-4 border-amber-700 duration-300  ${
                         user.role === "admin"
                           ? "opacity-30 cursor-not-allowed"
                           : ""
                       }`}
-                      disabled={
-                        user.role === "admin"
-                      }
+                      disabled={user.role === "admin"}
                     >
                       Make Admin
                     </button>
                     <button
                       onClick={() => handleMakeInstructor(user)}
-                      className={`bg-[#B38B37] py-2 px-4 rounded-md font-semibold hover:bg-black border-b-4 border-[#B38B37] duration-300 text-white ${
+                      className={`bg-amber-700 text-white w-1/2 mx-auto py-2 px-4 rounded-md font-semibold hover:bg-black border-b-4 border-amber-700 duration-300 ${
                         user.role === "instructor" || user.role === "admin"
                           ? "opacity-30 cursor-not-allowed"
                           : ""

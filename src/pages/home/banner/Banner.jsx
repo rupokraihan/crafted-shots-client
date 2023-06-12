@@ -7,6 +7,7 @@ import sliderImg3 from "../../../assets/banner/nordwood-themes-F3Dde_9thd8-unspl
 import sliderImg4 from "../../../assets/banner/pexels-kaique-rocha-108148.jpg";
 import sliderImg5 from "../../../assets/banner/jose-p-ortiz-LZ4dnFdhmVw-unsplash.jpg";
 import sliderImg6 from "../../../assets/banner/stacey-koenitz-bduka9UJzrk-unsplash.jpg";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -43,7 +44,9 @@ const Banner = () => {
           about <br /> camera settings, exposure techniques, composition
           principles, and <br /> unleash your creativity through the lens.
         </p>
-        <button className="my-btn mt-4">Get started</button>
+        <Link to={"classes"}>
+          <button className="my-btn mt-4">Get started</button>
+        </Link>
       </div>
     </div>
   );

@@ -29,6 +29,7 @@ const Home = () => {
       <PopularCLass />
       <PopularInstructors />
       <Reviews />
+      
     </div>
   );
 };

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import LoadingSpinner from "../../../components/LoadingSpinner";
 import Swal from "sweetalert2";
 import { useState } from "react";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+
 
 const MySelectedClass = () => {
   const [myClasses, isLoading, refetch] = useMyclass();
@@ -23,12 +24,10 @@ const MySelectedClass = () => {
         axiosSecure
           .delete(`selectedmyclass/${id}`)
           .then((res) => {
-            console.log(res.data);
-            refetch()
-            if (data.deletedCount > 0) {
+            refetch();
+            if (res.data.deletedCount > 0) {
               refetch();
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
-             
             }
           })
           .catch((error) => console.error(error));
@@ -44,24 +43,21 @@ const MySelectedClass = () => {
         <div>
           <div className="overflow-x-auto">
             <table className="table">
-              <thead>
-                <tr className="text-lg font-semibold font-serif tracking-wider text-center">
+              <thead className="text-lg font-semibold font-serif tracking-wider text-center">
+                <tr>
                   <th>#</th>
                   <th>Class Image</th>
                   <th>Class Name</th>
                   <th>Course Fee</th>
-                  <th>instructor Name</th>
-                  <th>availableSeats</th>
+                  <th>Instructor Name</th>
+                  <th>Available Seats</th>
                   <th>Pay</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody className="font-medium text-gray-700 text-center tracking-wider">
                 {myClasses.map((selectedClass, index) => (
-                  <tr
-                    className="text-lg font-sans tracking-wider"
-                    key={selectedClass._id}
-                  >
+                  <tr key={selectedClass._id}>
                     <td>{index + 1}</td>
                     <td>
                       <div className="flex items-center space-x-3">

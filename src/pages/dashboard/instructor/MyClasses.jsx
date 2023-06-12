@@ -25,9 +25,8 @@ const MyClasses = () => {
         return "bg-green-400 py-4 px-3";
       case "pending":
         return "bg-yellow-300 py-4 px-3";
-      case "declined":
+      case "denied":
         return "bg-red-500 py-4 px-3";
-      
     }
   };
 
@@ -92,7 +91,17 @@ const MyClasses = () => {
                         </button>
                       </Link>
                     </td>
-                    <td>feedback</td>
+                    <td>
+                      {classItem.status === "denied" ? (
+                        classItem.feedback ? (
+                          <span>{classItem.feedback}</span>
+                        ) : (
+                          ""
+                        )
+                      ) : (
+                        ""
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
