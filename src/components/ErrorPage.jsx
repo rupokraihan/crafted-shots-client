@@ -1,10 +1,8 @@
-import { FaceFrownIcon } from "@heroicons/react/24/solid";
 import React from "react";
-import { Link, useRouteError } from "react-router-dom";
+import { Link } from "react-router-dom";
 import errorImg from "../../src/assets/error/featured-404-error-image-removebg-preview.png";
 
 const ErrorPage = () => {
-  const { error, status } = useRouteError();
   return (
     <section className=" h-screen mx-auto p-16 text-gray-900">
       <div className="">
