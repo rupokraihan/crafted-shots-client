@@ -17,6 +17,8 @@ import MyClasses from "../pages/dashboard/instructor/MyClasses";
 import UpdatedClass from "../pages/dashboard/instructor/UpdatedClass";
 import ManageClasses from "../pages/dashboard/admin/ManageClasses";
 import MySelectedClass from "../pages/dashboard/student/MySelectedClass";
+import Payment from "../pages/dashboard/payment/Payment";
+import PaymentHistory from "../pages/dashboard/payment/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -58,7 +60,23 @@ const router = createBrowserRouter([
         path: "selectedclass",
         element: (
           <StudentRoute>
-            <MySelectedClass/>
+            <MySelectedClass />
+          </StudentRoute>
+        ),
+      },
+      {
+        path: `selectedclass/payment/:id`,
+        element: (
+          <StudentRoute>
+            <Payment />
+          </StudentRoute>
+        ),
+      },
+      {
+        path: "payment-history",
+        element: (
+          <StudentRoute>
+            <PaymentHistory />
           </StudentRoute>
         ),
       },

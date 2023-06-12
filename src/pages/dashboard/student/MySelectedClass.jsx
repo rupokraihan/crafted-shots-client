@@ -2,9 +2,7 @@ import useMyclass from "../../../hooks/useMYCLass";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../../components/LoadingSpinner";
 import Swal from "sweetalert2";
-import { useState } from "react";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const MySelectedClass = () => {
   const [myClasses, isLoading, refetch] = useMyclass();
@@ -75,7 +73,7 @@ const MySelectedClass = () => {
                     <td>{selectedClass.instructor}</td>
                     <td>{selectedClass.availableSeats}</td>
                     <td>
-                      <Link>
+                      <Link to={`payment/${selectedClass._id}`}>
                         <button className="badge badge-warning badge-lg">
                           <span className="p-3 font-bold">Pay Now</span>
                         </button>

@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import LoadingSpinner from "../../../components/LoadingSpinner";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageClasses = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -51,13 +51,13 @@ const ManageClasses = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, deny it!",
-      input: "text", // Add an input field for the feedback
-      inputPlaceholder: "Enter feedback (optional)",
+      input: "text", // input field for the feedback
+      inputPlaceholder: "Enter feedback for the Instructor",
       inputAttributes: {
         autocapitalize: "off",
       },
       showLoaderOnConfirm: true,
-      preConfirm: (feedback) => {
+      preConfirm: (Feedback) => {
         return axiosSecure
           .patch(`/denyclass/${data?._id}`, { feedback })
           .then((response) => {
@@ -73,11 +73,6 @@ const ManageClasses = () => {
       allowOutsideClick: () => !Swal.isLoading(),
     });
   };
-
-  // Function to handle feedback submission
-  
-
-  
 
   return (
     <div>
@@ -121,7 +116,7 @@ const ManageClasses = () => {
                     <td className="flex flex-col gap-3">
                       <button
                         onClick={() => handleApprove(data)}
-                        className={`text-white px-4 bg-green-600 hover:bg-red-800 py-1 rounded-md ${
+                        className={`text-white px-4 bg-green-700 pb-2 hover:bg-green-900 py-1 rounded-md ${
                           data?.status === "approved"
                             ? "opacity-30 cursor-not-allowed"
                             : ""
@@ -132,7 +127,7 @@ const ManageClasses = () => {
                       </button>
                       <button
                         onClick={() => handleDeny(data)}
-                        className={`text-white px-4 bg-red-600 hover:bg-red-800 py-1 rounded-md ${
+                        className={`text-white px-4 pb-2 bg-red-700 hover:bg-red-900 py-1 rounded-md ${
                           data?.status === "denied"
                             ? "opacity-30 cursor-not-allowed"
                             : ""

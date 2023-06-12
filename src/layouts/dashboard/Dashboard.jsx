@@ -39,7 +39,7 @@ const Dashboard = () => {
                 />
               </Link>
             </div>
-            
+
             {isAdmin && (
               <>
                 <li>
@@ -120,7 +120,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to={"gg"}
+                    to={"payment-history"}
                     className={({ isActive }) =>
                       isActive ? "active" : "default"
                     }
