@@ -3,9 +3,8 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
-
 const axiosSecure = axios.create({
-  baseURL: `http://localhost:5000`,
+  baseURL: `https://crafted-shots-server.vercel.app`,
 });
 
 // axios.get()
@@ -21,20 +20,20 @@ const useAxiosSecure = () => {
       return config;
     });
     axiosSecure.interceptors.request.use(
-    (response) => response,
-    async (error) => {
-      if (
-        error.response &&
-        (error.response.status === 401 || error.response.status === 403)
-      ) {
-        await logOut();
-        navigate("/login");
+      (response) => response,
+      async (error) => {
+        if (
+          error.response &&
+          (error.response.status === 401 || error.response.status === 403)
+        ) {
+          await logOut();
+          navigate("/login");
+        }
+        return Promise.reject(error);
       }
-      return Promise.reject(error);
-    })
-    
-  },[logOut,navigate])
-  
+    );
+  }, [logOut, navigate]);
+
   return [axiosSecure];
 };
 

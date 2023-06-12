@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {Fade} from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 const PopularInstructors = () => {
   const [classesData, setClassesData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/alldata")
+    fetch("https://crafted-shots-server.vercel.app/alldata")
       .then((res) => res.json())
       .then((data) => setClassesData(data))
       .catch((error) => console.error(error));

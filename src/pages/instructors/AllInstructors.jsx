@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { AuthContext } from "../../providers/AuthProvider";
-import avatar from "../../assets/avatar/PngItem_785792.png"
+import avatar from "../../assets/avatar/PngItem_785792.png";
 
 const AllInstructors = () => {
   const [instructorsData, setInstructorsData] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  const { user} = useContext(AuthContext);
-
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/alldata")
+    fetch("https://crafted-shots-server.vercel.app/alldata")
       .then((res) => res.json())
 
       .then((data) => {

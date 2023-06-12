@@ -10,7 +10,7 @@ const MyClasses = () => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/alldata`)
+    fetch(`https://crafted-shots-server.vercel.app/alldata`)
       .then((res) => res.json())
       .then((data) => {
         setClasses(data);

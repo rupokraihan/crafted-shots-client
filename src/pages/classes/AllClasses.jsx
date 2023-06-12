@@ -5,6 +5,8 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const AllClasses = () => {
   const [classesData, setClassesData] = useState([]);
@@ -12,10 +14,11 @@ const AllClasses = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [axiosSecure] = useAxiosSecure();
-  const [selectedClasses, setSelectedClasses] = useState([]);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   useEffect(() => {
-    fetch("http://localhost:5000/alldata")
+    fetch("https://crafted-shots-server.vercel.app/alldata")
       .then((res) => res.json())
       .then((data) => {
         const approvedClass = data.filter(
@@ -51,7 +54,7 @@ const AllClasses = () => {
             timer: 700,
           });
         }
-      })
+      });
     } else {
       Swal.fire({
         position: "center",
@@ -90,7 +93,9 @@ const AllClasses = () => {
               <tbody>
                 {classesData.map((data, index) => (
                   <tr
-                    className="text-lg font-sans tracking-wider text-center"
+                    className={`text-lg font-sans tracking-wider text-center ${
+                      data.availableSeats === 0 ? "bg-red-200" : ""
+                    }`}
                     key={data._id}
                   >
                     <td>{index + 1}</td>
@@ -115,12 +120,21 @@ const AllClasses = () => {
                     </td>
                     <td>{data.courseFee} $</td>
                     <td>
-                      <button
-                        onClick={() => handleSelectClass(data)}
-                        className="badge badge-lg badge-warning"
-                      >
-                        Select
-                      </button>
+                      {data.availableSeats === 0 || isAdmin || isInstructor ? (
+                        <button
+                          disabled
+                          className="badge badge-lg bg-red-500 text-gray-300"
+                        >
+                          Select
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => handleSelectClass(data)}
+                          className="badge badge-lg bg-green-500"
+                        >
+                          Select
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))}

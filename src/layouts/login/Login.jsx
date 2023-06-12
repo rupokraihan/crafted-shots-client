@@ -39,7 +39,7 @@ const Login = () => {
         const user = result.user;
         const saveUser = { name: user.displayName, email: user.email };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://crafted-shots-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -69,9 +69,9 @@ const Login = () => {
               <h1 className="text-4xl font-semibold mt-10 mb-2">
                 Welcome Back !
               </h1>
-                <p className="text-gray-400 font-serif font-extrabold tracking-widest">
-                  Sign in to continue access
-                </p>
+              <p className="text-gray-400 font-serif font-extrabold tracking-widest">
+                Sign in to continue access
+              </p>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">

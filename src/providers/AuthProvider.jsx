@@ -1,5 +1,14 @@
 import React, { createContext, useEffect, useState } from "react";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import axios from "axios";
 
@@ -7,8 +16,7 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -18,12 +26,12 @@ const AuthProvider = ({children}) => {
   };
 
   const signIn = (email, password) => {
-    setLoading(true)
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const signInWithGoogle = () => {
-    setLoading(true)
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
   const userInfo = (currentUser, name, photo) => {
@@ -34,11 +42,9 @@ const AuthProvider = ({children}) => {
   };
 
   const logOut = () => {
-    setLoading(true)
+    setLoading(true);
     return signOut(auth);
   };
-
-
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -47,9 +53,10 @@ const AuthProvider = ({children}) => {
       // get and set token
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", { email: currentUser.email })
+          .post("https://crafted-shots-server.vercel.app/jwt", {
+            email: currentUser.email,
+          })
           .then((data) => {
-            
             localStorage.setItem("access-token", data.data.token);
           });
       } else {
@@ -62,8 +69,6 @@ const AuthProvider = ({children}) => {
     };
   }, []);
 
-
-
   const authInfo = {
     user,
     createUser,
@@ -75,13 +80,9 @@ const AuthProvider = ({children}) => {
     loading,
   };
 
-
   return (
-    <AuthContext.Provider value={authInfo}>
-      {children}
-    </AuthContext.Provider >
-  )
-  ;
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

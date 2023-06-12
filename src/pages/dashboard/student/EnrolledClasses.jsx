@@ -26,7 +26,7 @@ const EnrolledClasses = () => {
     <div>
       <h2 className="text-5xl text-center mb-12">Enrolled Classes</h2>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto max-w-screen-lg mx-auto">
         <table className="table">
           <thead className="text-lg font-semibold font-serif tracking-wider text-center">
             <tr>

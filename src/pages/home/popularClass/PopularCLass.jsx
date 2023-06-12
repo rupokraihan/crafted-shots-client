@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
-import { Zoom } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
+
 
 const PopularCLass = () => {
   const [classesData, setClassesData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/alldata")
+    fetch("https://crafted-shots-server.vercel.app/alldata")
       .then((res) => res.json())
       .then((data) => setClassesData(data))
       .catch((error) => console.error(error));
@@ -29,7 +30,7 @@ const PopularCLass = () => {
         <div className="lg:grid gap-8 lg:grid-cols-3 mt-10 ">
           {classesData.slice(0, 6).map((data) => (
             <div key={data._id}>
-              <Zoom>
+              <Fade>
                 <div className="card w-96 h-96 mb-4 bg-base-100 shadow-xl image-full mx-auto">
                   <figure>
                     <img src={data.classImage} />
@@ -47,7 +48,7 @@ const PopularCLass = () => {
                     </div>
                   </div>
                 </div>
-              </Zoom>
+              </Fade>
             </div>
           ))}
         </div>
