@@ -109,13 +109,13 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to={"gggg"}
+                    to={"enrolled-classes"}
                     className={({ isActive }) =>
                       isActive ? "active" : "default"
                     }
                   >
                     <AdjustmentsHorizontalIcon className="text-amber-500 h-6" />
-                    Enrolled Classes
+                    My Enrolled Classes
                   </NavLink>
                 </li>
                 <li>
