@@ -5,7 +5,7 @@ import PopularInstructors from "../popularInstructors/PopularInstructors";
 import Reviews from "../reviews/Reviews";
 import { darkTheme, lightTheme } from "../theme/theme";
 import {MoonIcon, SunIcon } from "@heroicons/react/24/solid";
-import TotalStudent from "../total-students/TotalStudent";
+import TotalStudent from "../total/Total";
 import Events from "../upcoming-events/Events";
 
 
