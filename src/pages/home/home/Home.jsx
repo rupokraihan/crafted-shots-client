@@ -5,6 +5,8 @@ import PopularInstructors from "../popularInstructors/PopularInstructors";
 import Reviews from "../reviews/Reviews";
 import { darkTheme, lightTheme } from "../theme/theme";
 import {MoonIcon, SunIcon } from "@heroicons/react/24/solid";
+import TotalStudent from "../total-students/TotalStudent";
+import Events from "../upcoming-events/Events";
 
 
 const Home = () => {
@@ -28,6 +30,8 @@ const Home = () => {
       <Banner />
       <PopularCLass />
       <PopularInstructors />
+      <TotalStudent />
+      <Events/>
       <Reviews />
       
     </div>

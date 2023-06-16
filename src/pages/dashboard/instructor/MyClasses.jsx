@@ -45,7 +45,7 @@ const MyClasses = () => {
                   <th>#</th>
                   <th>Class Image</th>
                   <th>Class Name</th>
-                  <th>Total Enrolled</th>
+                  <th>Available Seats </th>
                   <th>Course Fee</th>
                   <th>Status</th>
                   <th>Action</th>
