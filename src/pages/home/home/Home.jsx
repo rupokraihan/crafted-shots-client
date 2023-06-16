@@ -7,6 +7,7 @@ import { darkTheme, lightTheme } from "../theme/theme";
 import {MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import TotalStudent from "../total/Total";
 import Events from "../upcoming-events/Events";
+import Subscribe from "../subscribe/Subscribe";
 
 
 const Home = () => {
@@ -33,6 +34,7 @@ const Home = () => {
       <TotalStudent />
       <Events/>
       <Reviews />
+      <Subscribe/>
       
     </div>
   );

@@ -6,7 +6,7 @@ import {AcademicCapIcon,NewspaperIcon,LinkIcon,FilmIcon  } from "@heroicons/reac
 
 const TotalStudent = () => {
   return (
-    <div className="w-full h-[610px]  lg:h-64 bg-gradient-to-r from-indigo-400 from-20% via-sky-400 via-60% to-sky-400 to-80">
+    <div className="w-full h-[610px]  lg:h-64 bg-gradient-to-r from-gray-500 from-20% via-gray-600 via-70% to-gray-700 to-80">
       <div className="lg:flex justify-between text-white lg:px-40 py-10">
         <div className="text-center mb-6">
           <AcademicCapIcon className="h-12 lg:h-20 mx-auto"></AcademicCapIcon>

@@ -7,7 +7,7 @@ const Events = () => {
   const [eventData, setEventData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/events")
+    fetch("https://crafted-shots-server.vercel.app/events")
       .then((res) => res.json())
       .then((data) => setEventData(data))
       .catch((error) => console.error(error));
