@@ -15,7 +15,7 @@ const Payment = () => {
   const courseFee = paymentClass?.courseFee;
   return (
     <div>
-      <h1>Payment page</h1>
+      <h1 className='text-center text-4xl font-bold tracking-wider mb-16'>Payment Now</h1>
       <Elements stripe={stripePromise}>
         <Checkout courseFee={courseFee} paymentClass={paymentClass}></Checkout>
       </Elements>

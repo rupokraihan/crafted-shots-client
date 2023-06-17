@@ -93,6 +93,7 @@ const Checkout = ({ courseFee, paymentClass }) => {
       )}
       <form className="max-w-screen-sm mx-auto m-6" onSubmit={handleSubmit}>
         <CardElement
+          className="border-2 border-gray-300 shadow-md p-4 bg-gray-50"
           options={{
             style: {
               base: {
