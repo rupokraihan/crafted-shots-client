@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 
 const PopularCLass = () => {
@@ -31,7 +32,7 @@ const PopularCLass = () => {
           {classesData.slice(0, 6).map((data) => (
             <div key={data._id}>
               <Fade>
-                <div className="card w-96 h-96 mb-4 bg-base-100 shadow-xl image-full mx-auto">
+                <div className="card w-full lg:w-96 h-96 mb-4 bg-base-100 shadow-xl image-full mx-auto">
                   <figure>
                     <img src={data.classImage} />
                   </figure>
@@ -52,6 +53,9 @@ const PopularCLass = () => {
             </div>
           ))}
         </div>
+        <Link to={"classes"} className="flex justify-center mt-4">
+          <button className="my-btn">All Classes</button>
+        </Link>
       </section>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 const PopularInstructors = () => {
   const [classesData, setClassesData] = useState([]);
@@ -29,7 +30,7 @@ const PopularInstructors = () => {
           {classesData.slice(0, 6).map((data) => (
             <div key={data._id} className="w-full">
               <Fade>
-                <div className="w-96 bg-base-100 mx-auto">
+                <div className="w-full lg:w-96  bg-base-100 mx-auto">
                   <div className="card-body">
                     <img
                       className="h-96 rounded-xl"
@@ -48,6 +49,9 @@ const PopularInstructors = () => {
             </div>
           ))}
         </div>
+        <Link to={"instructors"} className="flex justify-center mt-8">
+          <button className="my-btn">All Instructors</button>
+        </Link>
       </section>
     </div>
   );
