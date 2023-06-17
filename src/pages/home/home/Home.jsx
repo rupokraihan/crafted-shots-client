@@ -8,6 +8,7 @@ import {MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 import TotalStudent from "../total/Total";
 import Events from "../upcoming-events/Events";
 import Subscribe from "../subscribe/Subscribe";
+import SearchCourses from "../search-courses/SearchCourses";
 
 
 const Home = () => {
@@ -34,6 +35,7 @@ const Home = () => {
       <TotalStudent />
       <Events/>
       <Reviews />
+      <SearchCourses/>
       <Subscribe/>
       
     </div>
