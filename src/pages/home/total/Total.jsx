@@ -15,10 +15,11 @@ const TotalStudent = () => {
           </h2>
           <CountUp
             className="text-2xl lg:text-4xl font-semibold font-sans"
-            start={0}
+            start={600}
             end={1200}
-            duration={9.5}
+            duration={5.5}
             formattingFn={(value) => `${value}+`}
+            enableScrollSpy
           />
         </div>
         <div className="text-center mb-6">
@@ -30,8 +31,9 @@ const TotalStudent = () => {
             className="text-2xl lg:text-4xl font-semibold font-sans"
             start={0}
             end={260}
-            duration={9.5}
+            duration={5.5}
             formattingFn={(value) => `${value}+`}
+            enableScrollSpy
           />
         </div>
         <div className="text-center mb-6">
@@ -43,8 +45,9 @@ const TotalStudent = () => {
             className="text-2xl lg:text-4xl font-semibold font-sans"
             start={0}
             end={40}
-            duration={9.5}
+            duration={5.5}
             formattingFn={(value) => `${value}+`}
+            enableScrollSpy
           />
         </div>
         <div className="text-center mb-6">
@@ -56,8 +59,9 @@ const TotalStudent = () => {
             className="text-2xl lg:text-4xl font-semibold font-sans"
             start={0}
             end={220}
-            duration={9.5}
+            duration={5.5}
             formattingFn={(value) => `${value}+`}
+            enableScrollSpy
           />
         </div>
       </div>
